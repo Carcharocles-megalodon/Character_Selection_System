@@ -19,5 +19,17 @@ public class Characters : MonoBehaviour
         {
             go.SetActive(false);
         }
+        if (charactersList[0])
+        {
+            charactersList[0].SetActive(true);
+        }
+    }
+
+    public void Choose(int choice)
+    {
+        if (charactersList[choice])
+        {
+            charactersList[choice].SetActive(true);
+        }
     }
 }
