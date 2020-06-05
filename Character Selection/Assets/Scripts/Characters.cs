@@ -5,6 +5,7 @@ using UnityEngine;
 public class Characters : MonoBehaviour
 {
     [SerializeField] private GameObject[] charactersList;
+    private int index;
 
     private void Start()
     {
@@ -25,11 +26,29 @@ public class Characters : MonoBehaviour
         }
     }
 
-    public void Choose(int choice)
+    public void ToggleLeft()
     {
-        if (charactersList[choice])
+        charactersList[index].SetActive(false);
+
+        index--;
+        if (index < 0)
         {
-            charactersList[choice].SetActive(true);
+            index = charactersList.Length - 1;
         }
+        charactersList[index].SetActive(true);  
+    }
+
+    public void ToggleRight()
+    {
+        charactersList[index].SetActive(false);
+
+        index++;
+        if (index > charactersList.Length - 1)
+        {
+            index = 0;
+        }
+
+        charactersList[index].SetActive(true);
+
     }
 }
